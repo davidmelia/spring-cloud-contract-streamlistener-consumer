@@ -58,7 +58,7 @@ public class ConsumerIntegartionTest {
   public void testAvroFxRateEventViaSpringCloudContract() {
     AvroFxRateEvent expected = AvroFxRateEvent.newBuilder().setFrom("GBP").setTo("USD").setRate(BigDecimal.valueOf(1.23)).build();
     stubTrigger.trigger("triggerAvroFxRateEvent");
-    Assertions.assertEquals(expected.toString(), fxRateConsumer.getLastAvroFxRateEvent().toString());
+    Assertions.assertEquals(expected, fxRateConsumer.getLastAvroFxRateEvent());
   }
 
 }
